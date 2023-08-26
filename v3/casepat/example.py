@@ -39,15 +39,16 @@ if __name__ == "__main__":
         - case.To.camel()
     """
 
+    db_columns = User42.columns()
     # Example [1]
     # ============
-    print(f"\n44 | Example 1:")
-    pprint(User42.columns(), indent=4)  # .  .  .  .  .  .  .  .  .  .  .  .  .  .  (1)
+    print(f"\n45 | Example 1:")
+    pprint(db_columns, indent=4)  # .  .  .  .  .  .  .  .  .  .  .  .  .  .  (1)
 
-    query = SQL.format(where_0 ="ad@example.com", **User42.columns())  # .  .  .  . (2)
+    query = SQL.format(where_0 ="ad@example.com", **db_columns)  # .  .  .  . (2)
     # Example [2]
     # ===========
-    print(f"\n50 | Example 2:", query, "\n")
+    print(f"\n51 | Example 2:", query, "\n")
 
     for row in EXAMPLE["rows"]:
         kwargs = dict()
@@ -56,11 +57,11 @@ if __name__ == "__main__":
 
             # Example [3]
             # ===========
-            print(f" - 59 | Example 3.{index+1}:", column, case.To.snake(column))
+            print(f" - 60 | Example 3.{index+1}:", column, case.To.snake(column))
 
         update_user = User42(**kwargs)  # .  .  .  .  .  .  .  .  .  .  .  .  .  .  (4)
         update_user.user_mail = "a.dent@example.com"
     
     # Example [4]
     # ===========
-    print(f"\n66 | Example 4:", update_user, "\n")
+    print(f"\n67 | Example 4:", update_user, "\n")
