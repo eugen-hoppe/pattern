@@ -38,17 +38,19 @@ if __name__ == "__main__":
         - case.To.snake()
         - case.To.camel()
     """
-
     db_columns = User42.columns()
+
     # Example [1]
     # ============
     print(f"\n45 | Example 1:")
     pprint(db_columns, indent=4)  # .  .  .  .  .  .  .  .  .  .  .  .  .  .  (1)
+    # https://github.com/eugen-hoppe/pattern/blob/25e7df01c6fe158a11ef6375ec9ef2c8ee165cca/v3/casepat/example.py#L48
 
     query = SQL.format(where_0 ="ad@example.com", **db_columns)  # .  .  .  . (2)
     # Example [2]
     # ===========
-    print(f"\n51 | Example 2:", query, "\n")
+    print(f"\n52 | Example 2:", query, "\n")
+    # https://github.com/eugen-hoppe/pattern/blob/25e7df01c6fe158a11ef6375ec9ef2c8ee165cca/v3/casepat/example.py#L60
 
     for row in EXAMPLE["rows"]:
         kwargs = dict()
@@ -57,11 +59,13 @@ if __name__ == "__main__":
 
             # Example [3]
             # ===========
-            print(f" - 60 | Example 3.{index+1}:", column, case.To.snake(column))
+            print(f" - 62 | Example 3.{index+1}:", column, case.To.snake(column))
+            # https://github.com/eugen-hoppe/pattern/blob/25e7df01c6fe158a11ef6375ec9ef2c8ee165cca/v3/casepat/example.py#L72
 
         update_user = User42(**kwargs)  # .  .  .  .  .  .  .  .  .  .  .  .  .  .  (4)
         update_user.user_mail = "a.dent@example.com"
     
     # Example [4]
     # ===========
-    print(f"\n67 | Example 4:", update_user, "\n")
+    print(f"\n70 | Example 4:", update_user, "\n")
+    # https://github.com/eugen-hoppe/pattern/blob/25e7df01c6fe158a11ef6375ec9ef2c8ee165cca/v3/casepat/example.py#L85
