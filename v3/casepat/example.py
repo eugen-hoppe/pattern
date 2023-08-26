@@ -35,8 +35,12 @@ if __name__ == "__main__":
     """Examples of method usage
     
     Methods:
-        - case.To.snake()
-        - case.To.camel()
+      - case.To.snake()
+      - case.To.camel()
+
+    DOC-Links:
+      - 1 [230826a](https://github.com/eugen-hoppe/pattern/blob/25e7df01c6fe158a11ef6375ec9ef2c8ee165cca/v3/casepat/example.py)
+
     """
     db_columns = User42.columns()
 
@@ -44,13 +48,13 @@ if __name__ == "__main__":
     # ============
     print(f"\n45 | Example 1:")
     pprint(db_columns, indent=4)  # .  .  .  .  .  .  .  .  .  .  .  .  .  .  (1)
-    # 230826 L48
+    # [230826a]
 
     query = SQL.format(where_0 ="ad@example.com", **db_columns)  # .  .  .  . (2)
     # Example [2]
     # ===========
     print(f"\n52 | Example 2:", query, "\n")
-    # 230826 L60
+    # [230826a]
 
     for row in EXAMPLE["rows"]:
         kwargs = dict()
@@ -60,7 +64,7 @@ if __name__ == "__main__":
             # Example [3]
             # ===========
             print(f" - 62 | Example 3.{index+1}:", column, case.To.snake(column))
-            # 230826 L62
+            # [230826a]
 
         update_user = User42(**kwargs)  # .  .  .  .  .  .  .  .  .  .  .  .  .  .  (4)
         update_user.user_mail = "a.dent@example.com"
@@ -68,4 +72,4 @@ if __name__ == "__main__":
     # Example [4]
     # ===========
     print(f"\n70 | Example 4:", update_user, "\n")
-    # 230826 L85
+    # [230826a]
