@@ -12,12 +12,15 @@ import re
 
 
 class To:
-    
     # Method to convert from camel-case to snake-case
     # ===============================================
     @staticmethod
-    def camel(snake: str) -> str:
-        parts = snake.split("_")
+    def camel(snake: str, upper_first: bool = False) -> str:
+        if snake.startswith("_"):
+            snake = snake[1:]
+        parts = snake.lower().split("_")
+        if upper_first:
+            return "".join(p.capitalize() for p in parts)
         return parts[0] + "".join(p.capitalize() for p in parts[1:])
 
     # Method to convert from snake-case to camel-case
