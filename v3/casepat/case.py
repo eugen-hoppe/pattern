@@ -23,4 +23,4 @@ class To:
     @staticmethod
     def snake(camel: str) -> str:
         chars = ['_' + ch.lower() if ch.isupper() else ch for ch in camel]
-        return ''.join(chars)
+        return ''.join(chars).lstrip('_')
