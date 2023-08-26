@@ -8,6 +8,8 @@ Util Models
 Eugen Hoppe
 https://github.com/eugen-hoppe
 """
+import re
+
 
 class To:
 
@@ -22,5 +24,4 @@ class To:
     # ===============================================
     @staticmethod
     def snake(camel: str) -> str:
-        chars = ['_' + ch.lower() if ch.isupper() else ch for ch in camel]
-        return ''.join(chars).lstrip('_')
+        return re.sub(r'([a-z0-9])([A-Z])', r'\1_\2', camel).lower()
