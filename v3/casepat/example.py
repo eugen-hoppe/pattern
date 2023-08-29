@@ -25,7 +25,7 @@ class User42:
 
     @staticmethod
     def columns() -> dict[str, str]:
-        table_columns = dict()
+        table_columns: dict[str, str] = {}
         for key in User42.__annotations__:
             table_columns[key] = case.To.camel(key)
         return table_columns
