@@ -6,4 +6,4 @@ Use single-file templates to copy and paste code snippets for enhanced productiv
 ### Patterns
 
 - [casepat](https://github.com/eugen-hoppe/pattern/tree/main/v3/casepat)
-- jsonpat (comming soon)
+- [confpat](https://github.com/eugen-hoppe/pattern/tree/main/v3/confpat)
