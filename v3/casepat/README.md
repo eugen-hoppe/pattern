@@ -23,7 +23,7 @@ Let's break down how the `case` module works and how it's used in this script:
   - It uses a regex substitution to insert underscores before each uppercase letter (that follows a lowercase letter or digit), and then converts the whole string to lowercase.
 
 
-Overall, this `example.py` showcases how to use the `case` module to work with dataclasses and SQL queries in a way that allows for conversion between camelCase (often used in JSON and JavaScript) and snake_case (often used in Python and SQL).
+Overall, this `example.py` showcases how to use the `case` module to work with dataclasses and SQL queries in a way that allows for conversion between camelCase and snake_case.
 
 ## LINKS
 
