@@ -51,9 +51,8 @@ Let's break down how the `case` module works and how it's used in this script:
 
 Overall, this `example.py` showcases how to use the `case` module to work with dataclasses and SQL queries in a way that allows for conversion between camelCase and snake_case.
 
-## 
 
-## LINKS
+## Links
 
 ### example.py
 
