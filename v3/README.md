@@ -15,4 +15,3 @@ cd v3 && pip install -r requirements.txt && cd ..
 ```Shell
 pytest -vv
 ```
-
