@@ -1,4 +1,30 @@
-# Documentation
+# casepat
+
+## Get started
+
+### Simply copy and paste
+
+```python
+# case.py
+import re
+
+
+class To:
+    @staticmethod
+    def camel(snake: str, upper_first: bool = False) -> str:
+        if snake.startswith("_"):
+            snake = snake[1:]
+        parts = snake.lower().split("_")
+        if upper_first:
+            return "".join(p.capitalize() for p in parts)
+        return parts[0] + "".join(p.capitalize() for p in parts[1:])
+
+    @staticmethod
+    def snake(camel: str) -> str:
+        return re.sub(r"([a-z0-9])([A-Z])", r"\1_\2", camel).lower()
+```
+
+## Documentation
 
 This pattern contains two Python files: one called `case.py` which defines a class `To` with static methods for converting between camelCase and snake_case, and another file which uses this `case` module to demonstrate different ways of working with a dataclass and for example an SQL query template.
 
@@ -24,6 +50,8 @@ Let's break down how the `case` module works and how it's used in this script:
 
 
 Overall, this `example.py` showcases how to use the `case` module to work with dataclasses and SQL queries in a way that allows for conversion between camelCase and snake_case.
+
+## 
 
 ## LINKS
 
