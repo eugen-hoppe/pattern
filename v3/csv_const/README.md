@@ -1,8 +1,19 @@
-# CSV Const
+# CSV to Enum Converter Script
 
-## TODO: DOC
+This script is designed to generate a Python file with enumeration constants derived from the column names of a CSV file. It provides a convenient way to reference CSV columns in your codebase.
+
+## Features
+
+- **Enum Class Generation**: Converts column names of a specified CSV file into constants of an Enum class.
+- **Error Handling**: Includes checks for file existence, CSV parsing issues, and write permissions.
+- **Documentation**: The generated Python file includes a docstring with the path of the CSV file and a reference to the script's documentation.
+
+## Get Started
+- Create csv_const.py and 
+- copy following code block to paste it
 
 ```python
+# csv_const.py
 import os
 
 import pandas as pd
