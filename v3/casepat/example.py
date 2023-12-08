@@ -10,9 +10,7 @@ SQL = (
 )
 EXAMPLE = {
     "columns": ("userId", "firstName", "lastName", "userMail"),
-    "rows": [
-        (42, "Arthur", "Dent", "ad@example.com")
-    ]
+    "rows": [(42, "Arthur", "Dent", "ad@example.com")],
 }
 
 
@@ -33,7 +31,7 @@ class User42:
 
 if __name__ == "__main__":
     """Examples of method usage
-    
+
     Methods:
       - case.To.snake()
       - case.To.camel()
@@ -41,7 +39,7 @@ if __name__ == "__main__":
     db_columns = User42.columns()
     print("Equivalent mapping")
     pprint(db_columns, indent=4)
-    query = SQL.format(where_0 ="ad@example.com", **db_columns)
+    query = SQL.format(where_0="ad@example.com", **db_columns)
     print("SQL Statement:", query, "\n")
     for row in EXAMPLE["rows"]:
         kwargs = dict()

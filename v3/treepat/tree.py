@@ -8,11 +8,11 @@ def dir_walk(init_path: str) -> list[tuple[str, list[str], list[str]]]:
 
 
 def dir_tree(
-        entrypoint: str,
-        keys: tuple[str, str, str] = ("parents", "files", "paths"),
-        cache: dict[str, dict[str, Any]] | None = None,
-        cache_function: Callable | None = None
-        ) -> dict[str, dict[str, list[str]]]:
+    entrypoint: str,
+    keys: tuple[str, str, str] = ("parents", "files", "paths"),
+    cache: dict[str, dict[str, Any]] | None = None,
+    cache_function: Callable | None = None,
+) -> dict[str, dict[str, list[str]]]:
     dir_db = {}
     dirs = dir_walk(entrypoint)
     for path, rel_dir_paths, file_list in dirs:
@@ -32,11 +32,13 @@ def dir_tree(
         if isinstance(cache, dict):
             if isinstance(cache_function, Callable):
                 cache_function(dir_db, path, cache)
-        
+
     return dir_db
 
 
-def parent_title(dir_db: dict[str, dict[str, list[str]]], path: str, cache: dict[str, str]) -> str | None:
+def parent_title(
+    dir_db: dict[str, dict[str, list[str]]], path: str, cache: dict[str, str]
+) -> str | None:
     node = dir_db[path]
     if node["parents"]:
         if dir_db[node["parents"][-1]]["files"]:

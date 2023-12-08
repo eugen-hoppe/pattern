@@ -35,4 +35,3 @@ df[df[X.DISCOVERED] == 2024] = df[df[X.DISCOVERED] == 2024].replace(2024, 2023)
 print(df.groupby(by=X.DISCOVERED)[X.DISCOVERED].count())
 print()
 print(2024, "corrected")
-

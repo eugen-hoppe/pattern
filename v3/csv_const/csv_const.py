@@ -17,7 +17,7 @@ def create(
     path: list[str] = PATH,
     file: str = FILE,
     snippet: str = "@unique\nclass {0}(str, Enum):\n".format(ENUM),
-    i4: str = "    "
+    i4: str = "    ",
 ) -> None:
     """
     Create constants from columns of a CSV file.
@@ -33,7 +33,7 @@ def create(
         )
         for col in pd.read_csv(csv_path).columns:
             snippet += f'{i4}{col.upper()}: str = "{col}"\n'
-        
+
         snippet += (
             f'\n{i4}@staticmethod\n{i4}def path():\n{i4}{i4}return "{csv_path}"\n'
         )
