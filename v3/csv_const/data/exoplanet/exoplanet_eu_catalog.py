@@ -6,7 +6,7 @@ class X(str, Enum):
     """
     Column Names as Constants of: data/exoplanet/exoplanet_eu_catalog.csv
 
-    Created with: "https://github.com/eugen-hoppe/pattern"
+    Created with: "https://github.com/eugen-hoppe/pattern/blob/main/v3/csv_const/README.md"
     """
     NAME: str = "name"
     PLANET_STATUS: str = "planet_status"
