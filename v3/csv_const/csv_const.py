@@ -13,6 +13,11 @@ PATH, FILE = ["data", "exoplanet"], "exoplanet_eu_catalog"  # .csv
 ENUM = "X"  # X-Axis
 
 
+# Docs
+# ====
+PAT_URL = "https://github.com/eugen-hoppe/pattern/blob/main/v3/csv_const/README.md"
+
+
 def create(
     path: list[str] = PATH,
     file: str = FILE,
@@ -29,7 +34,7 @@ def create(
         snippet = "from enum import Enum, unique\n\n\n" + snippet
         snippet += (  # docstring
             f'{i4}"""\n{i4}Column Names as Constants of: {csv_path}\n\n'
-            + f'{i4}Created with: "https://github.com/eugen-hoppe/pattern"\n{i4}"""\n'  # TODO update subpath
+            + f'{i4}Created with: "{PAT_URL}"\n{i4}"""\n'  # TODO update subpath
         )
         for col in pd.read_csv(csv_path).columns:
             snippet += f'{i4}{col.upper()}: str = "{col}"\n'
