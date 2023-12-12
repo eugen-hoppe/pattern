@@ -1,14 +1,4 @@
-from d5.dictionary import App, Enum
-
-
-def fetch(addr: list, root: Enum = App):
-    cache: Enum = root
-    for id in addr:
-        if isinstance(cache, tuple):
-            return cache[id]
-        node: Enum = getattr(cache, "ID_" + str(id))
-        cache = node.value
-    return cache[0]
+from d5.dictionary import App
 
 
 if __name__ == "__main__":
