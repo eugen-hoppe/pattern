@@ -25,13 +25,4 @@ df = df.dropna(subset=X.DISCOVERED)  # X.{COLUMN}
 # [3] Work with X-Enum
 df[X.DISCOVERED] = [int(year) for year in df[X.DISCOVERED]]
 
-print(df.groupby(by=X.DISCOVERED)[X.DISCOVERED].count().head(40))  # 2024 ?
-
-y2024 = df[df[X.DISCOVERED] == 2024]
-print(y2024[X.UPDATED])  # 667: 2023-11-29
-
-df[df[X.DISCOVERED] == 2024] = df[df[X.DISCOVERED] == 2024].replace(2024, 2023)
-
-print(df.groupby(by=X.DISCOVERED)[X.DISCOVERED].count())
-print()
-print(2024, "corrected")
+print(df.groupby(by=X.DISCOVERED)[X.DISCOVERED].count().head(10))
