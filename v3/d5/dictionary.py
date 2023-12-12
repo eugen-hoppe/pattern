@@ -4,7 +4,7 @@ from d5 import constants  # NOTE: dd_dict / constants / __init__.py
 
 
 
-class App(Enum):  # or Project, Domain, Dictionary etc.
+class App(Enum):  # or Project, Domain, Dictionary, etc.
     ID_1 = constants.User
     ID_2 = constants.Account
     # ...
@@ -14,7 +14,7 @@ class App(Enum):  # or Project, Domain, Dictionary etc.
         # TODO: create Enum Mixin with methods to access values by address
 
         if isinstance(addr, str):
-            raise NotImplementedError("TODO str address like 1.2.1")
+            addr = [int(id_) for id_ in addr.split(".")]
         cache: Enum = App
         for id in addr:
             if isinstance(cache, tuple):

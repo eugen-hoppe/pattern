@@ -14,3 +14,6 @@ if __name__ == "__main__":
     
     # encoded data from db: 2.1.2.1 ->
     print(App.fetch([2, 1, 2, 1]))
+
+    # encoded data from db: 1.1.42.1 ->
+    print(App.fetch("1.1.42.1"))
