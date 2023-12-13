@@ -23,6 +23,7 @@ class Constant(Enum):
       - d5 / constants / __init__.py
       - d5 / constants / sub / __init__.py
     """
+
     @classmethod
     def fetch(cls, addr: list | str, **_):
         if isinstance(addr, str):
@@ -47,8 +48,7 @@ class Constant(Enum):
         for cls_name in class_names:
             snippet += " " * 4 + f'"{cls_name}",\n'
         snippet += ")\n"
-        
-        
+
         with open(file=os.path.join(*path, f"__init__.py"), mode="w") as file_py:
             file_py.write(snippet)
 
@@ -59,6 +59,7 @@ class To:
     """
     Casepat: https://github.com/eugen-hoppe/pattern/tree/main/v3/casepat
     """
+
     @staticmethod
     def camel(snake: str, upper_first: bool = False) -> str:
         if snake.startswith("_"):

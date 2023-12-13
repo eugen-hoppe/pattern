@@ -11,7 +11,7 @@ if __name__ == "__main__":
     # encoded data from db: 1.1.3.1 ->
     addr_1_1_3_1 = App.ID_1.value.ID_1.value.ID_3.value[1]
     print(addr_1_1_3_1)
-    
+
     # encoded data from db: 2.1.2.1 ->
     print(App.fetch([2, 1, 2, 1]))
 
