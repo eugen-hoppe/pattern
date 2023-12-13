@@ -1,7 +1,7 @@
-from enum import Enum
+from d5.constants import Constant
 
 
-class UserStatus(Enum):
+class UserStatus(Constant):
     ID_1 = ("Inactive", "E-Mail not confirmed", "User account is pending")
     ID_2 = ("Active", "User is active")
     ID_3 = ("Customer", "User is Customer")

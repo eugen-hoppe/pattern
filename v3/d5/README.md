@@ -1,4 +1,4 @@
-# Domain Driven Decode Dictionary Design (D5)
+# Domain Driven Decoding Dictionary Design (D5)
 
 Status: in development
 

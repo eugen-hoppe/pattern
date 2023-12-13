@@ -1,7 +1,7 @@
-from enum import Enum
+from d5.constants import Constant
 
 
-class AccountPlan(Enum):
+class AccountPlan(Constant):
     ID_1 = ("One", "Default Plan", "Free")
     ID_2 = ("Pro", "Paid Plan")
     # ...
