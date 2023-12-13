@@ -1,4 +1,4 @@
-from d5 import constants  # NOTE: dd_dict / constants / __init__.py
+from d5 import constants
 
 
 class App(constants.Constant):  # or Project, Domain, Dictionary, etc.
