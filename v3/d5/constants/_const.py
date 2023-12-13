@@ -86,4 +86,4 @@ class To:
 
 if __name__ == "__main__":
     Constant.init_file(LEVEL_0_CONSTANTS, is_level_0=True)
-    Constant.init_file(LEVEL_1_CONSTANTS, path=PATH_TO_INIT_FILE+["sub"])
+    Constant.init_file(LEVEL_1_CONSTANTS, path=PATH_TO_INIT_FILE+["l1"])
