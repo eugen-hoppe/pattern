@@ -8,6 +8,7 @@ class X(str, Enum):
 
     Created with: "https://github.com/eugen-hoppe/pattern/blob/main/v3/csv_const/README.md"
     """
+
     NAME: str = "name"
     PLANET_STATUS: str = "planet_status"
     MASS: str = "mass"

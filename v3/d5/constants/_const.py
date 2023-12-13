@@ -6,11 +6,14 @@ from enum import Enum
 # Configuration
 # =============
 PATH_TO_INIT_FILE = ["v3", "d5", "constants"]
-CONSTANT_NAMES = (
+LEVEL_0_CONSTANTS = (
     "account",
     "user",
 )
-# TODO: for sub constants
+LEVEL_1_CONSTANTS = (
+    "account_plan",
+    "user_status",
+)
 
 
 # Main module
@@ -25,7 +28,7 @@ class Constant(Enum):
     """
 
     @classmethod
-    def fetch(cls, addr: list | str, **_):
+    def fetch(cls, addr: list | str, **_) -> str:
         if isinstance(addr, str):
             addr = [int(id_) for id_ in addr.split(".")]
         cache: Enum = cls
@@ -37,12 +40,19 @@ class Constant(Enum):
         return cache[0]
 
     @staticmethod
-    def init_file(const_names: list, path: list[str] = PATH_TO_INIT_FILE):
-        snippet = "from d5.constants._const import Constant\n\n"
-        class_names = ["Constant"]
+    def init_file(
+        const_names: list, path: list[str] = PATH_TO_INIT_FILE, is_level_0: bool = False
+    ) -> None:
+        snippet, class_names = "", []
+        level_imports = "."
+        if is_level_0:
+            snippet = "from d5.constants._const import Constant\n\n"
+            class_names.append("Constant")
+        else:
+            level_imports += ".".join(path[len(PATH_TO_INIT_FILE):]) + "."
         for name in const_names:
             class_name = To.camel(name, True)
-            snippet += f"from d5.constants.{name} import {class_name}\n"
+            snippet += f"from d5.constants{level_imports}{name} import {class_name}\n"
             class_names.append(class_name)
         snippet += "\n\n__all__ = (\n"
         for cls_name in class_names:
@@ -75,4 +85,5 @@ class To:
 
 
 if __name__ == "__main__":
-    Constant.init_file(CONSTANT_NAMES)
+    Constant.init_file(LEVEL_0_CONSTANTS, is_level_0=True)
+    Constant.init_file(LEVEL_1_CONSTANTS, path=PATH_TO_INIT_FILE+["sub"])
