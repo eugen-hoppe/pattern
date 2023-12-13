@@ -15,11 +15,8 @@ LEVEL_CONSTANTS = {
         "account_plan",
         "user_status",
     ),
-    2: (
-        "user_status_bool",
-    ),
+    2: ("user_status_bool",),
 }
-
 
 
 # Main module
@@ -101,6 +98,6 @@ if __name__ == "__main__":
         if level:
             path += [f"l{level}"]
         Constant.init_file(
-            const_names=constants, path=path, is_level_0=level==0, cut_path=cut_path
+            const_names=constants, path=path, is_level_0=level == 0, cut_path=cut_path
         )
     # Constant.init_file(LEVEL_1_CONSTANTS, path=PATH_TO_INIT_FILE+["l1"])

@@ -23,5 +23,3 @@ if __name__ == "__main__":
 
     # encoded data
     print(App.fetch("1.1.456.2.1"))
-
-
