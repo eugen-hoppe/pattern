@@ -6,14 +6,20 @@ from enum import Enum
 # Configuration
 # =============
 PATH_TO_INIT_FILE = ["v3", "d5", "constants"]
-LEVEL_0_CONSTANTS = (
-    "account",
-    "user",
-)
-LEVEL_1_CONSTANTS = (
-    "account_plan",
-    "user_status",
-)
+LEVEL_CONSTANTS = {
+    0: (
+        "account",
+        "user",
+    ),
+    1: (
+        "account_plan",
+        "user_status",
+    ),
+    2: (
+        "user_status_bool",
+    ),
+}
+
 
 
 # Main module
@@ -41,7 +47,10 @@ class Constant(Enum):
 
     @staticmethod
     def init_file(
-        const_names: list, path: list[str] = PATH_TO_INIT_FILE, is_level_0: bool = False
+        const_names: list,
+        path: list[str] = PATH_TO_INIT_FILE,
+        is_level_0: bool = False,
+        cut_path: int = 0,
     ) -> None:
         snippet, class_names = "", []
         level_imports = "."
@@ -49,7 +58,7 @@ class Constant(Enum):
             snippet = "from d5.constants._const import Constant\n\n"
             class_names.append("Constant")
         else:
-            level_imports += ".".join(path[len(PATH_TO_INIT_FILE):]) + "."
+            level_imports += ".".join(path[cut_path:]) + "."
         for name in const_names:
             class_name = To.camel(name, True)
             snippet += f"from d5.constants{level_imports}{name} import {class_name}\n"
@@ -85,5 +94,13 @@ class To:
 
 
 if __name__ == "__main__":
-    Constant.init_file(LEVEL_0_CONSTANTS, is_level_0=True)
-    Constant.init_file(LEVEL_1_CONSTANTS, path=PATH_TO_INIT_FILE+["l1"])
+    # Constant.init_file(LEVEL_0_CONSTANTS, is_level_0=True)
+    path = PATH_TO_INIT_FILE
+    cut_path = len(PATH_TO_INIT_FILE)
+    for level, constants in LEVEL_CONSTANTS.items():
+        if level:
+            path += [f"l{level}"]
+        Constant.init_file(
+            const_names=constants, path=path, is_level_0=level==0, cut_path=cut_path
+        )
+    # Constant.init_file(LEVEL_1_CONSTANTS, path=PATH_TO_INIT_FILE+["l1"])

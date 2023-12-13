@@ -20,3 +20,8 @@ if __name__ == "__main__":
 
     # encoded data from db: (1.)1.42.1 ->
     print(constants.User.fetch("1.42.1"))
+
+    # encoded data
+    print(App.fetch("1.1.456.2.1"))
+
+
