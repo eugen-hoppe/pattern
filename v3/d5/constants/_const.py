@@ -24,10 +24,6 @@ LEVEL_CONSTANTS = {
 class Constant(Enum):
     """
     Constant Instance
-
-    Imports are registered in:
-      - d5 / constants / __init__.py
-      - d5 / constants / sub / __init__.py
     """
 
     @classmethod
@@ -69,11 +65,9 @@ class Constant(Enum):
             file_py.write(snippet)
 
 
-# Dependency Pattern
-# ==================
 class To:
     """
-    Casepat: https://github.com/eugen-hoppe/pattern/tree/main/v3/casepat
+    https://gist.github.com/eugen-hoppe/c15790ff4d54ae84ad4da2ee8f63b8fb
     """
 
     @staticmethod
@@ -91,7 +85,6 @@ class To:
 
 
 if __name__ == "__main__":
-    # Constant.init_file(LEVEL_0_CONSTANTS, is_level_0=True)
     path = PATH_TO_INIT_FILE
     cut_path = len(PATH_TO_INIT_FILE)
     for level, constants in LEVEL_CONSTANTS.items():
@@ -100,4 +93,3 @@ if __name__ == "__main__":
         Constant.init_file(
             const_names=constants, path=path, is_level_0=level == 0, cut_path=cut_path
         )
-    # Constant.init_file(LEVEL_1_CONSTANTS, path=PATH_TO_INIT_FILE+["l1"])
